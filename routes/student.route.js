@@ -1,10 +1,11 @@
 const express = require('express')
 const router = express.Router()
 const studentController = require('../controllers/student.controllers')
+const { authMiddleware } = require('../middleware/authMiddleware')
 
-router.get('/', studentController.index)
-router.get('/:id', studentController.detail)
-router.post('/', studentController.store)
+router.get('/', authMiddleware, studentController.index)
+router.get('/:id', authMiddleware, studentController.detail)
+router.post('/', authMiddleware, studentController.store)
 // router.put('/:id', studentController.update)
 // router.delete('/:id', studentController.destory)
 
