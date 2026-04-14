@@ -9,4 +9,5 @@ self.registerValidation = [
     body('password').notEmpty().isLength({ min: 6 }).withMessage('Password must be at least 6 characters long')
 ]
 
+
 module.exports = self
